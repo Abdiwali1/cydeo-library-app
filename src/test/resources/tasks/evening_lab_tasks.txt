@@ -1,0 +1,61 @@
+
+You can copy below data in configuration.properties file
+
+qa2_url=https://library2.cydeo.com/
+lib22_user=librarian22@library
+lib22_pass=libraryUser
+student55_user=student55@library
+student55_pass=libraryUser
+
+
+-----------------------------
+
+
+Feature: Login feature
+
+  @student
+  Scenario: Login as a student
+    Given I am on the login page
+    When I log in as a student
+    Then books should be displayed
+
+
+ ----------------------
+
+
+Feature: Login with parameters and use data table
+
+  @studentParam
+  Scenario: Login as a librarian with parameters
+    Given I am on the login page
+    When I log in as a "student"
+    Then show records default value should be 10
+        And show records should have following options:
+          | 5   |
+          | 10  |
+          | 15  |
+          | 50  |
+          | 100 |
+          | 200 |
+          | 500 |
+
+
+--------------------------
+
+
+Feature: User account tests
+  As a user, I should be able to log in with different users using their correct emails and passwords.
+  when I log in, I should be able to see username in the account username section.
+
+  @all_accounts
+  Scenario Outline: Verify user information <email>
+    Given I am on the login page
+    When I log in using "<email>" and "<password>"
+    Then account holder name should be "<name>"
+
+    Examples:
+      | email             | password | name            |
+      | student27@library | libraryUser | Test Student 27 |
+      | student28@library | libraryUser | Test Student 28 |
+      | student29@library | libraryUser | Test Student 29 |
+      | student30@library | libraryUser | Test Student 30 |
