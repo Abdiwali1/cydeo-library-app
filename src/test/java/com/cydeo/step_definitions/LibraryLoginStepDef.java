@@ -6,6 +6,7 @@ import com.cydeo.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 public class LibraryLoginStepDef {
 
@@ -19,14 +20,17 @@ public class LibraryLoginStepDef {
 
     @When("I log in as a librarian")
     public void i_log_in_as_a_librarian() {
-     libraryLoginPage.emailInput.sendKeys(ConfigurationReader.getProperty("lib22_user"));
-     libraryLoginPage.passwordInput.sendKeys(ConfigurationReader.getProperty("lib22_pass"));
-     libraryLoginPage.signinBtn.click();
+//     libraryLoginPage.emailInput.sendKeys(ConfigurationReader.getProperty("lib22_user"));
+//     libraryLoginPage.passwordInput.sendKeys(ConfigurationReader.getProperty("lib22_pass"));
+//     libraryLoginPage.signinBtn.click();
+
+        libraryLoginPage.login(ConfigurationReader.getProperty("lib22_user"),ConfigurationReader.getProperty("lib22_pass"));
     }
 
 
     @Then("dashboard should be displayed")
     public void dashboard_should_be_displayed() {
+        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains("dashboard"));
 
     }
 
