@@ -42,4 +42,23 @@ public class LibraryLoginStepDef {
     public void iLogInUsingAnd(String email, String password) {
         libraryLoginPage.login(email,password);
     }
+
+
+    @When("I log in as a student")
+    public void i_log_in_as_a_student() {
+//     libraryLoginPage.emailInput.sendKeys(ConfigurationReader.getProperty("student55_user"));
+//     libraryLoginPage.passwordInput.sendKeys(ConfigurationReader.getProperty("student55_pass"));
+//     libraryLoginPage.signinBtn.click();
+
+        libraryLoginPage.login(ConfigurationReader.getProperty("student55_user"),ConfigurationReader.getProperty("student55_pass"));
+
+    }
+
+    @Then("books should be displayed")
+    public void books_should_be_displayed() {
+        BrowserUtils.waitForUrlContains("books");
+    Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains("books"));
+
+    }
+
 }
