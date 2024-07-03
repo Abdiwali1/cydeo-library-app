@@ -38,4 +38,8 @@ public class LibraryLoginStepDef {
     }
 
 
+    @When("I log in using {string} and {string}")
+    public void iLogInUsingAnd(String email, String password) {
+        libraryLoginPage.login(email,password);
+    }
 }
