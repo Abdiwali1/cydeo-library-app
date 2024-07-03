@@ -46,7 +46,8 @@ public class UsersStepDef {
 
     @Then("table should have the following column names:")
     public void table_should_have_the_following_column_names(List<String> expectedTableHeaders) {
-      List<String> actualTableHeaders = new ArrayList<>();
+
+        List<String> actualTableHeaders = new ArrayList<>();
 
         for (WebElement eachHeader : usersPage.tableHeaders) {
             actualTableHeaders.add(eachHeader.getText());
