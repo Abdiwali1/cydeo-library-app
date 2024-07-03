@@ -23,8 +23,20 @@ public class UsersStepDef {
     }
 
     @When("I click on {string} link")
-    public void i_click_on_link(String string) {
-      dashboardPage.usersLink.click();
+    public void i_click_on_link(String link) {
+
+        switch (link.toLowerCase()){
+            case "dashboard":
+                dashboardPage.dashboardLink.click();
+                break;
+            case "users":
+                dashboardPage.usersLink.click();
+                break;
+            case "books":
+                dashboardPage.booksLink.click();
+                break;
+        }
+
     }
 
     @Then("table should have the following column names:")
