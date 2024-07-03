@@ -13,4 +13,14 @@ public class DashboardPage {
 
     @FindBy(id = "user_count")
     public WebElement usersAmount;
+
+    @FindBy(linkText = "Users")
+    public WebElement usersLink;
+
+    @FindBy(linkText = "Dashboard")
+    public WebElement dashboardLink;
+
+    @FindBy(linkText = "Books")
+    public WebElement booksLink;
+
 }

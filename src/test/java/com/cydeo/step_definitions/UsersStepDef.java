@@ -24,7 +24,7 @@ public class UsersStepDef {
 
     @When("I click on {string} link")
     public void i_click_on_link(String string) {
-
+      dashboardPage.usersLink.click();
     }
 
     @Then("table should have the following column names:")
