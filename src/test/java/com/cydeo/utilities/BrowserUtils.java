@@ -81,6 +81,15 @@ public class BrowserUtils {
         wait.until(ExpectedConditions.titleContains(title));
     }
 
+    public static void waitForUrlContains(String url){
+        //Create the object of 'WebDriverWait' class, and set up the constructor args
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+
+        //use the 'wait' object with the proper syntax to create explicit wait conditions.
+        wait.until(ExpectedConditions.urlContains(url));
+    }
+
+
     /**
      * This method accepts a dropdown element and returns a List<String> that contains all options values as String.
      * @param dropdownElement

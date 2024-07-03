@@ -1,6 +1,7 @@
 package com.cydeo.step_definitions;
 
 import com.cydeo.pages.LibraryLoginPage;
+import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
 import io.cucumber.java.en.Given;
@@ -30,6 +31,8 @@ public class LibraryLoginStepDef {
 
     @Then("dashboard should be displayed")
     public void dashboard_should_be_displayed() {
+
+        BrowserUtils.waitForUrlContains("dashboard");
         Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains("dashboard"));
 
     }
