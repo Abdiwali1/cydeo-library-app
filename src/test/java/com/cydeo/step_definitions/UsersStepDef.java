@@ -6,10 +6,15 @@ import com.cydeo.utilities.BrowserUtils;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class UsersStepDef {
 
     DashboardPage dashboardPage = new DashboardPage();
+    UsersPage usersPage =new UsersPage();
 
     @When("there should be {int} users")
     public void there_should_be_users(int expectedUserAmount) {
@@ -40,9 +45,14 @@ public class UsersStepDef {
     }
 
     @Then("table should have the following column names:")
-    public void table_should_have_the_following_column_names(io.cucumber.datatable.DataTable dataTable) {
+    public void table_should_have_the_following_column_names(List<String> expectedTableHeaders) {
+      List<String> actualTableHeaders = new ArrayList<>();
 
+        for (WebElement eachHeader : usersPage.tableHeaders) {
+            actualTableHeaders.add(eachHeader.getText());
+        }
 
+       Assert.assertEquals(expectedTableHeaders,actualTableHeaders);
     }
 
 
