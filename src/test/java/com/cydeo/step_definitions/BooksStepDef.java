@@ -1,6 +1,7 @@
 package com.cydeo.step_definitions;
 
 import com.cydeo.pages.BooksPage;
+import com.cydeo.utilities.BrowserUtils;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.eo.Se;
 import org.junit.Assert;
@@ -18,6 +19,7 @@ public class BooksStepDef {
 
     @Then("show records default value should be {int}")
     public void show_records_default_value_should_be(int expectedDefaultNum) {
+        BrowserUtils.waitForUrlContains("books");
 
         String actualDefaultNum = select.getFirstSelectedOption().getText();
         String expectedDefaultNumber = String.valueOf(expectedDefaultNum); // expectedDefaultNum+""
@@ -27,6 +29,8 @@ public class BooksStepDef {
 
     @Then("show records should have the following options:")
     public void show_records_should_have_the_following_options(List<String> expectedOptions) {
+
+        BrowserUtils.waitForUrlContains("books");
 
         List<String> actualOptions = new ArrayList<>();
 
