@@ -46,4 +46,11 @@ public class BooksStepDef {
     }
 
 
+    @Then("account holder name should be {string}")
+    public void accountHolderNameShouldBe(String expectedAccountName) {
+        String actualAccountName = booksPage.usernameLink.getText();
+
+        Assert.assertEquals(expectedAccountName,actualAccountName);
+
+    }
 }

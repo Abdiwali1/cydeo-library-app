@@ -13,4 +13,7 @@ public class BooksPage {
 
     @FindBy(xpath = "//select[@name='tbl_books_length']")
     public WebElement selectRecords;
+
+    @FindBy(xpath = "//a[@id='navbarDropdown']/span")
+    public WebElement usernameLink;
 }
